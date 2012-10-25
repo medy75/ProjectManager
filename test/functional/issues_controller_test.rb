@@ -3,6 +3,13 @@ require 'test_helper'
 class IssuesControllerTest < ActionController::TestCase
   setup do
     @issue = issues(:one)
+    @update = {
+      :title => "Lorem Ipsum",
+      :description => "Lorem Ipsum description",
+      :status => "new",
+      :label => "test",
+      :estimate => 0.2
+    }
   end
 
   test "should get index" do
@@ -28,7 +35,7 @@ class IssuesControllerTest < ActionController::TestCase
     get :show, :id => @issue
     assert_response :success
   end
-
+  
   test "should get edit" do
     get :edit, :id => @issue
     assert_response :success

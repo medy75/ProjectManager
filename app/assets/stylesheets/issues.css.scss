@@ -1,0 +1,32 @@
+// Place all the styles related to the Issues controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+table{
+	border-collapse: collapse;
+	width: 70%;
+}
+
+tr{
+	width: 60%;
+	padding: 5px;
+}
+
+td{
+	padding: 5px;
+}
+
+table .title{
+	font-size: larger;
+	font-weight: bold;
+}
+
+table .label{
+	margin: 0px;
+}
+
+.line_one{
+	background: #f8f8f8;
+}
+.line_two{
+	background: white;
+}

@@ -1,0 +1,20 @@
+<h1>Listing issues</h1>
+<%= link_to "Home", "http://localhost:3000" %>
+<table>
+<% @issues.each do |issue| %>
+  <tr class="<%= cycle('line_one','line_two') %>">
+    <td class="title"><%= issue.title %></td>
+    <td class="label">Labels: <%= issue.label %></td>
+    <td><%= truncate(strip_tags(issue.description), :length => 40) %></td>
+    <td>Status: <%= issue.status %></td>
+    <td>Estimate: <%= issue.estimate %></td>
+    <td><%= link_to 'Show', issue %><br/>
+    <%= link_to 'Edit', edit_issue_path(issue) %><br/>
+    <%= link_to 'Destroy', issue, :method => :delete, :data => { :confirm => 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Issue', new_issue_path %>

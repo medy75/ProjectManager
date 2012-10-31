@@ -1,5 +1,5 @@
 <h1>Listing issues</h1>
-<%= link_to "Home", "http://localhost:3000" %>
+<%= link_to "Home", :projects %>
 <table>
 <% @issues.each do |issue| %>
   <tr class="<%= cycle('line_one','line_two') %>">

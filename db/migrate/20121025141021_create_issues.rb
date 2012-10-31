@@ -10,4 +10,5 @@ class CreateIssues < ActiveRecord::Migration
       t.timestamps
     end
   end
+
 end

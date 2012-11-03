@@ -1,0 +1,5 @@
+<p>
+  <strong>Issue:</strong>
+  <%= issue.title %>
+  <%= link_to 'Remove', [issue.project, issue], :confirm => 'Really remove issue?', :method => :delete %>
+</p>

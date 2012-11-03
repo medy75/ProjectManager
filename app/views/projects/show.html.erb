@@ -1,5 +1,5 @@
 <p id="notice"><%= notice %></p>
-
+<%= link_to 'Projects', :projects %>
 <p>
   <b>Title:</b>
   <%= @project.title %>
@@ -9,8 +9,18 @@
   <b>Description:</b>
   <%= @project.description %>
 </p>
+<p>
+  <b>Id:</b>
+  <%= @project.id %>
+</p>
+
+<%= render @project.issues %>
+
+<h3>Add issue</h3>
+<%= render 'issues/form' %>
+
 
 
 <%= link_to 'Edit', edit_project_path(@project) %> |
 <%= link_to 'Back', projects_path %> |
-<%= link_to 'Issues', :issues %>
+

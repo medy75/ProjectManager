@@ -21,6 +21,10 @@ class ProjectsController < ApplicationController
     end
   end
 
+  def find
+    @project = Project.new
+  end
+
   # GET /projects/new
   # GET /projects/new.json
   def new

@@ -2,7 +2,8 @@ class IssuesController < ApplicationController
   # GET /issues
   # GET /issues.json
   def index
-    @issues = Issue.all
+    @project = Project.find(params[:project_id])
+    @issues = @project.issues
 
     respond_to do |format|
       format.html # index.html.erb
@@ -24,7 +25,10 @@ class IssuesController < ApplicationController
   # GET /issues/new
   # GET /issues/new.json
   def new
+    @project = Project.find(params[:project_id])
     @issue = Issue.new
+
+    #@issue = @project.issues.new(params[:issue])
 
     respond_to do |format|
       format.html # new.html.erb
@@ -40,11 +44,15 @@ class IssuesController < ApplicationController
   # POST /issues
   # POST /issues.json
   def create
-    @issue = Issue.new(params[:issue])
+    @project = Project.find(params[:project_id])
+    @issue = @project.issues.create(params[:issue])
+    #redirect_to project_path(@project)
+    #@issue = @project.issues.new(params[:issue])
+    #@issue = Issue.new(params[:issue])
 
     respond_to do |format|
       if @issue.save
-        format.html { redirect_to @issue, :notice => 'Issue was successfully created.' }
+        format.html { redirect_to @project, :notice => 'Issue was successfully created.' }
         format.json { render :json => @issue, :status => :created, :location => @issue }
       else
         format.html { render :action => "new" }
@@ -72,12 +80,15 @@ class IssuesController < ApplicationController
   # DELETE /issues/1
   # DELETE /issues/1.json
   def destroy
-    @issue = Issue.find(params[:id])
+    @project = Project.find(params[:project_id])
+    @issue = @project.issues.find(params[:id])
+    #@issue = Issue.find(params[:id])
     @issue.destroy
+    redirect_to project_path(@project)
 
-    respond_to do |format|
-      format.html { redirect_to issues_url }
-      format.json { head :no_content }
-    end
+    # respond_to do |format|
+    #   format.html { redirect_to issues_url }
+    #   format.json { head :no_content }
+    # end
   end
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121031083814) do
+ActiveRecord::Schema.define(:version => 20121102114315) do
 
   create_table "issues", :force => true do |t|
     t.string   "title"
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(:version => 20121031083814) do
     t.decimal  "estimate"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+    t.integer  "project_id"
   end
 
   create_table "projects", :force => true do |t|

@@ -44,7 +44,9 @@ class ProjectsController < ApplicationController
   # POST /projects
   # POST /projects.json
   def create
+    @user = @current_user
     @project = Project.new(params[:project])
+    @project.users << User.find(current_user.id)
 
     respond_to do |format|
       if @project.save
@@ -76,7 +78,9 @@ class ProjectsController < ApplicationController
   # DELETE /projects/1
   # DELETE /projects/1.json
   def destroy
+    #@user = current_user
     @project = Project.find(params[:id])
+    #@project = @user.projects.find(params[:id])
     @project.destroy
 
     respond_to do |format|

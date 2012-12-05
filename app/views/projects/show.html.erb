@@ -1,5 +1,5 @@
 <p id="notice"><%= notice %></p>
-<%= link_to 'Projects', :projects %>
+<%= link_to 'My projects', root_url, :class => "btn btn-small btn-primary" %>
 <p>
   <b>Title:</b>
   <%= @project.title %>
@@ -14,7 +14,18 @@
   <%= @project.id %>
 </p>
 
-<%= render @project.issues %>
+<h3>Issues</h3>
+<table>
+	<% @project.issues.each do |issue| %>
+		<tr>
+			<td><%= link_to issue.title, issue %></td>
+      <td><%= link_to 'Destroy', issue, :method => :delete, :data => { :confirm => 'Are you sure?' } %></td>
+		</tr>
+	<% end %>
+
+</table>
+
+<!-- <%= render @project.issues %> -->
 
 <h3>Add issue</h3>
 <%= render 'issues/form' %>
@@ -22,5 +33,5 @@
 
 
 <%= link_to 'Edit', edit_project_path(@project) %> |
-<%= link_to 'Back', projects_path %> |
+<%= link_to 'Back', "http://localhost:3000/projects#show" %> |
 

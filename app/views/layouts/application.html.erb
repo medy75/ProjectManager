@@ -1,14 +1,39 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>ProjectManager</title>
+  <title>Project manager</title>
+  <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
+  <![endif]-->
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
-<body class='<%= controller.controller_name %>'>
+<body>
+	<div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="brand" href="#">Project Manager</a>
+          <ul class="nav pull-right">
+                <% if current_user %>
+          <div class="row-fluid">
+            <div class="span9"><a href="#user1"><%= current_user.username %></a></div>
+            <div class="span1">&nbsp;</div>
+            <div class="span2"><%= link_to "Signout", signout_path %></div>
+          </div>
+        <% else %>
+          <%= link_to "Sign in with twitter", "/auth/twitter" %>
+        <% end %>
+          </ul>
+      </div>
+  </div>
+</div>
 
-<%= yield %>
+<div class="container">
+  <%= yield %>
+</div>
+
 
 </body>
 </html>

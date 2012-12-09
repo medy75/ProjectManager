@@ -3,8 +3,9 @@ class UsersController < ApplicationController
   # GET /users.json
   def index
     #@users = User.all
-    @user = User.find(current_user.id)
-  
+      #@user = User.find(current_user.id)  
+      @user = current_user
+      
     respond_to do |format|
       format.html # index.html.erb
       format.json { render :json => @users }

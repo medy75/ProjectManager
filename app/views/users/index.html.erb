@@ -19,7 +19,15 @@
         </table>
     </div>
 <% else %>
-    <%= link_to "Sign in with twitter", "/auth/twitter" %>
+    <div class="hero-unit">
+        <span class="pagination-centered">
+            <h1>Project Manager</h1>
+        </span>
+        <span class="pagination-centered">
+            <%= button_to "Sign in with twitter", "/auth/twitter", :class => "btn btn-large btn-primary btn-login" %>
+        </span>
+        
+    </div>
 <% end %>
 
 

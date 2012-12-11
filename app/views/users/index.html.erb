@@ -9,8 +9,9 @@
                     <tr>
                         <td><%= link_to project.title, project , :class =>  "" %>
                             <div class="pull-right">
-                                <%= link_to "", edit_project_path(project), :class => "btn btn-small icon-pencil" %>
-                                <%= link_to "", project, :class => "btn btn-small btn-danger icon-trash", :method => :delete, :data => { :confirm => 'Are you sure?' } %></a>
+                                <%= link_to '<i class="icon-pencil icon-white"></i>'.html_safe, edit_project_path(project) %>
+                                &nbsp;
+                                <%= link_to '<i class="icon-trash icon-white"></i>'.html_safe, project, :method => :delete, :data => { :confirm => 'Are you sure?' } %></a>
                             </div>
                         </td>
                     </tr>

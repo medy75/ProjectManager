@@ -26,5 +26,5 @@
 </p>
 
 
-<%= link_to 'Edit', edit_project_issue_path(@issue) %> |
+<%= link_to 'Edit', edit_polymorphic_path([@issue.project, @issue]) %> |
 <%= link_to 'Back', @issue.project %>

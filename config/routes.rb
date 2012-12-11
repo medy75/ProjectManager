@@ -6,7 +6,7 @@ ProjectManager::Application.routes.draw do
     resources :issues  
   end
 
-  resources :issues
+  #resources :issues
 
   resources :projects
 

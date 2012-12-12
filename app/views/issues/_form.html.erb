@@ -12,26 +12,26 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :title %><br />
-    <%= f.text_field :title %>
+    <%= f.label :title %>
+    <%= f.text_field :title, :class => "wider-input" %>
   </div>
   <div class="field">
-    <%= f.label :label %><br />
-    <%= f.text_field :label %>
+    <%= f.label :label %>
+    <%= f.text_field :label, :class => "wider-input" %>
   </div>
   <div class="field">
-    <%= f.label :description %><br />
-    <%= f.text_area :description, :rows=>6%>
+    <%= f.label :description %>
+    <%= f.text_area :description, :rows=>4, :class => "wider-input" %>
   </div>
   <div class="field">
-    <%= f.label :status %><br />
+    <%= f.label :status %>
     <%= f.select :status, ['new', 'in progress', 'testing', 'done'] %>
   </div>
   <div class="field">
-    <%= f.label :estimate %><br />
-    <%= f.text_field :estimate %>
+    <%= f.label :estimate %>
+    <%= f.number_field :estimate%>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit 'Create issue', :class => "btn btn-medium btn-primary" %>
   </div>
 <% end %>

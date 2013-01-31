@@ -14,6 +14,12 @@ class ProjectsController < ApplicationController
   # GET /projects/1.json
   def show
     @project = Project.find(params[:id])
+    @issues = @project.issues
+
+    @new_issues = @issues.select {|issue| issue.status=="new"}
+    @progress_issues = @issues.select {|issue| issue.status=="in progress"}
+    @test_issues = @issues.select {|issue| issue.status=="testing"}
+    @done_issues = @issues.select {|issue| issue.status=="done"}
 
     respond_to do |format|
       format.html # show.html.erb

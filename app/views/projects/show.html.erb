@@ -7,10 +7,43 @@
 <div class="row-fluid">
   <h4>Issues</h4>
   <div class="container">
-    <div class="span2">AAAAAAAAAAAAAAA</div>
-    <div class="span2">BBBBBBBBBBBBBBB</div>
-    <div class="span2">CCCCCCCCCCCCCCC</div>
-    <div class="span2">DDDDDDDDDDDDDDD</div>
+    <div class="span2">
+      <table class="table table-striped table-hover">
+        <% @new_issues.each do |issue| %>
+          <tr>
+            <td><%= link_to issue.title, [@project, issue], :class =>  "" %></td>
+            <!--<td><%= link_to '<i class="icon-pencil icon-white"></i>'.html_safe, edit_polymorphic_path([@project, issue]) %></td>-->
+          </tr>
+        <% end %>
+      </table>
+    </div>
+    <div class="span2">
+      <table class="table table-striped table-hover">
+        <% @progress_issues.each do |issue| %>
+          <tr>
+            <td><%= link_to issue.title, [@project, issue], :class =>  "" %></td>
+          </tr>
+        <% end %>
+      </table>
+    </div>
+    <div class="span2">
+      <table class="table table-striped table-hover">
+        <% @test_issues.each do |issue| %>
+          <tr>
+            <td><%= link_to issue.title, [@project, issue], :class =>  "" %></td>
+          </tr>
+        <% end %>
+      </table>
+    </div>
+    <div class="span2">
+      <table class="table table-striped table-hover">
+        <% @done_issues.each do |issue| %>
+          <tr>
+            <td><%= link_to issue.title, [@project, issue], :class =>  "" %></td>
+          </tr>
+        <% end %>
+      </table>
+    </div>
 
     <div class="span4">
       <h4>Description:</h4>

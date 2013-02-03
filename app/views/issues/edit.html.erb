@@ -1,6 +1,43 @@
 <h1>Editing issue</h1>
 
-<%= render 'form' %>
 
-<%= link_to 'Show', @issue %> |
-<%= link_to 'Back', issues_path %>
+<%= form_for([@project, @issue]) do |f| %>
+  <% if f.object.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(f.object.errors.count, "error") %> prohibited this issue from being saved:</h2>
+
+      <ul>
+      <% f.object.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title %>
+    <%= f.text_field :title, :class => "wider-input" %>
+  </div>
+  <div class="field">
+    <%= f.label :label %>
+    <%= f.text_field :label, :class => "wider-input" %>
+  </div>
+  <div class="field">
+    <%= f.label :description %>
+    <%= f.text_area :description, :rows=>4, :class => "wider-input" %>
+  </div>
+  <div class="field">
+    <%= f.label :status %>
+    <%= f.select :status, ['new', 'in progress', 'testing', 'done'] %>
+  </div>
+  <div class="field">
+    <%= f.label :estimate %>
+    <%= f.number_field :estimate%>
+  </div>
+  <div class="actions">
+    <%= f.submit 'Submit', :class => "btn btn-medium btn-primary" %>
+  </div>
+<% end %>
+
+<%= link_to 'Show', @issue.project %> |
+<%= link_to 'Back', project_issue_path %>

@@ -39,6 +39,8 @@ gem 'foreigner' # pridano extra
 
 gem 'omniauth-twitter'
 
+gem "cancan"
+
 
 #gem 'bootstrap-sass'
 #gem 'less-rails-bootstrap'

@@ -8,16 +8,16 @@ class UsersController < ApplicationController
       
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render :json => @users }
+      format.json { render :json => @user }
     end
   end
 
-  def all
+  def showallusers
     @users = User.all
-    
+
     respond_to do |format|
-      format.html # show.html.erb
-      format.json { render :json => @users }
+      format.html  # showallusers.html.erb
+      format.json  { render :json => @users }
     end
   end
 
@@ -25,10 +25,10 @@ class UsersController < ApplicationController
   # GET /users/1.json
   def show
     @user = User.find(current_user.id)
-
+    @users = User.all
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render :json => @user }
+      format.json { render :json => @users }
     end
   end
 

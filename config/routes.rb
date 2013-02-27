@@ -1,6 +1,10 @@
 ProjectManager::Application.routes.draw do
 
-  resources :users
+  resources :users do
+    collection do
+      get :showallusers
+    end
+  end
 
   resources :projects do
     resources :issues  

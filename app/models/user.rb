@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  attr_accessible :email, :first_name, :last_name, :provider, :uid, :username
+  attr_accessible :email, :first_name, :last_name, :provider, :uid, :username, :role
   has_and_belongs_to_many :projects
 
   ROLES = %w[admin programmer guest banned]

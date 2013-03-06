@@ -14,7 +14,7 @@
           <tr>
             <td><%= link_to issue.title, [@project, issue], :class =>  "" %></td>
             <td><%= link_to "Edit", edit_project_issue_path(@project, issue) %></td>
-            <td><%= link_to "X", issue, :method=>:delete, :confirm=>'Are you sure?' %></td>
+            <td><%= link_to "X", [@project, issue], :method=>:delete, :confirm=>'Are you sure?' %></td>
           </tr>
         <% end %>
       </table>
@@ -38,7 +38,7 @@
           <tr>
             <td><%= link_to issue.title, [@project, issue], :class =>  "" %></td>
             <td><%= link_to "Edit", edit_project_issue_path(@project, issue) %></td>
-            <td><%= link_to "X", issue, :method=>:delete, :confirm=>'Are you sure?' %></td>
+            <td><%= link_to "X", [@project, issue], :method=>:delete, :confirm=>'Are you sure?' %></td>
           </tr>
         <% end %>
       </table>
@@ -50,7 +50,7 @@
           <tr>
             <td><%= link_to issue.title, [@project, issue], :class =>  "" %></td>
             <td><%= link_to "Edit", edit_project_issue_path(@project, issue) %></td>
-            <td><%= link_to "X", issue, :method=>:delete, :confirm=>'Are you sure?' %></td>
+            <td><%= link_to "X", [@project, issue], :method=>:delete, :confirm=>'Are you sure?' %></td>
           </tr>
         <% end %>
       </table>

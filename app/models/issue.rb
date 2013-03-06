@@ -1,4 +1,5 @@
 class Issue < ActiveRecord::Base
+  STATUS = ['new', 'in progress', 'testing', 'done']
   attr_accessible :description, :estimate, :label, :status, :title, :project_id, :points_estimates
   belongs_to :project
   validates :title, :presence => true

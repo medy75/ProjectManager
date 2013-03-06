@@ -13,7 +13,7 @@
 
   <div class="field">
     <%= f.label :title %>
-    <%= f.text_field :title, :class => "wider-input" %>
+    <%= f.text_field :title, :class => "wider-input", :value=>"Title" %>
   </div>
   <div class="field">
     <%= f.label :label %>
@@ -25,7 +25,7 @@
   </div>
   <div class="field">
     <%= f.label :status %>
-    <%= f.select :status, ['new', 'in progress', 'testing', 'done'] %>
+    <%= f.select :status, Issue::STATUS %>
   </div>
   <div class="field">
     <%= f.label :estimate %>

@@ -13,7 +13,7 @@
         <% @new_issues.each do |issue| %>
           <tr>
             <td><%= link_to issue.title, [@project, issue], :class =>  "" %></td>
-            <!--<td><%= link_to '<i class="icon-pencil icon-white"></i>'.html_safe, edit_polymorphic_path([@project, issue]) %></td>-->
+            <td><%= link_to "X", issue, :method=>:delete, :confirm=>'Are you sure?' %></td>
           </tr>
         <% end %>
       </table>
@@ -24,6 +24,7 @@
         <% @progress_issues.each do |issue| %>
           <tr>
             <td><%= link_to issue.title, [@project, issue], :class =>  "" %></td>
+            <td><%= link_to "X", [@project, issue], :method=>:delete, :confirm=>'Are you sure?' %></td>
           </tr>
         <% end %>
       </table>
@@ -34,6 +35,7 @@
         <% @test_issues.each do |issue| %>
           <tr>
             <td><%= link_to issue.title, [@project, issue], :class =>  "" %></td>
+            <td><%= link_to "X", issue, :method=>:delete, :confirm=>'Are you sure?' %></td>
           </tr>
         <% end %>
       </table>
@@ -44,6 +46,7 @@
         <% @done_issues.each do |issue| %>
           <tr>
             <td><%= link_to issue.title, [@project, issue], :class =>  "" %></td>
+            <td><%= link_to "X", issue, :method=>:delete, :confirm=>'Are you sure?' %></td>
           </tr>
         <% end %>
       </table>

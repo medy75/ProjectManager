@@ -24,6 +24,10 @@
   <b>Estimate:</b>
   <%= @issue.estimate %>
 </p>
+<p>
+  <b>Story points:</b>
+  <%= @issue.points_estimate %>
+</p>
 
 
 <%= link_to 'Edit', edit_polymorphic_path([@issue.project, @issue]) %> |

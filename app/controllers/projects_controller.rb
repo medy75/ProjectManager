@@ -15,12 +15,17 @@ class ProjectsController < ApplicationController
   def show
     @project = Project.find(params[:id])
     @issues = @project.issues
+    @undone_points = 0
+    @done_points = 0
 
     @new_issues = @issues.select {|issue| issue.status=="new"}
     @progress_issues = @issues.select {|issue| issue.status=="in progress"}
     @test_issues = @issues.select {|issue| issue.status=="testing"}
     @done_issues = @issues.select {|issue| issue.status=="done"}
 
+    @new_issues.each do |new_issue|
+      @undone_points += new_issue.points_estimate if new_issue.points_estimate
+    end
     respond_to do |format|
       format.html # show.html.erb
       format.json { render :json => @project }

@@ -39,6 +39,10 @@ class IssuesController < ApplicationController
   # GET /issues/1/edit
   def edit
     @issue = Issue.find(params[:id])
+    respond_to do |format|
+      format.html
+      format.json { render :json => @issue }
+    end
   end
 
   # POST /issues

@@ -34,6 +34,10 @@
     <%= f.label :estimate %>
     <%= f.number_field :estimate%>
   </div>
+  <div class="field">
+    <%= f.label :points_estimate %>
+    <%= f.number_field :points_estimate, :value=>0 %>
+  </div>
   <div class="actions">
     <%= f.submit 'Submit', :class => "btn btn-medium btn-primary" %>
   </div>

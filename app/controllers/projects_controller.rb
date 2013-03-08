@@ -20,6 +20,8 @@ class ProjectsController < ApplicationController
     @progress_points = 0
     @test_points = 0
     @done_points = 0
+    @remain_points = 0
+    @total_points = 0
 
     @backlog_issues = @issues.select {|issue| issue.status=="backlog"}
     @sprintlog_issues = @issues.select {|issue| issue.status=="sprintlog"}
@@ -42,6 +44,10 @@ class ProjectsController < ApplicationController
     @done_issues.each do |done_issue|
       @done_points += done_issue.points_estimate if done_issue.points_estimate
     end
+
+    @remain_points = @backlog_points + @sprintlog_points + @progress_points + @test_points
+    @total_points = @remain_points + @done_points
+    
     respond_to do |format|
       format.html # show.html.erb
       format.json { render :json => @project }

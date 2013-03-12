@@ -48,6 +48,13 @@ class ProjectsController < ApplicationController
     @remain_points = @backlog_points + @sprintlog_points + @progress_points + @test_points
     @total_points = @remain_points + @done_points
     
+    GoogleChart::PieChart.new('320x200', "Pie Chart",false) do |pc| 
+      pc.data "Apples", 40 
+      pc.data "Banana", 20 
+      pc.data "Peach", 30 
+      pc.data "Orange", 60 
+      @chart =  pc.to_url
+    end
     respond_to do |format|
       format.html # show.html.erb
       format.json { render :json => @project }

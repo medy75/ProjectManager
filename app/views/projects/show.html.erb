@@ -87,6 +87,8 @@
     <div class="span4">
       <h4>Story points</h4>
       Remaining: <%= @remain_points %> Done: <%= @done_points %> Total: <%= @total_points %>
+      <br/><img src="<%= @chart %>" />
+      <br/><%= link_to "Graf", @chart %>
       <h4>Description</h4>
       <%= @project.description %>
 

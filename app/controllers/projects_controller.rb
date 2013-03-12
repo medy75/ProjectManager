@@ -48,11 +48,9 @@ class ProjectsController < ApplicationController
     @remain_points = @backlog_points + @sprintlog_points + @progress_points + @test_points
     @total_points = @remain_points + @done_points
     
-    GoogleChart::PieChart.new('320x200', "Pie Chart",false) do |pc| 
-      pc.data "Apples", 40 
-      pc.data "Banana", 20 
-      pc.data "Peach", 30 
-      pc.data "Orange", 60 
+    GoogleChart::PieChart.new('320x200', "Burndown chart",false) do |pc| 
+      pc.data "Remain", @remain_points.to_i
+      pc.data "Done", @done_points.to_i
       @chart =  pc.to_url
     end
     respond_to do |format|

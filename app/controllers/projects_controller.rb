@@ -1,5 +1,7 @@
 class ProjectsController < ApplicationController
-  
+
+  require 'gchart'
+
   # GET /projects
   # GET /projects.json
   def index
@@ -49,11 +51,13 @@ class ProjectsController < ApplicationController
     @remain_points = @backlog_points + @sprintlog_points + @progress_points + @test_points
     @total_points = @remain_points + @done_points
     
-    GoogleChart::PieChart.new('320x200', "Burndown pie chart",false) do |pc| 
-      pc.data "Remain", @remain_points.to_i
-      pc.data "Done", @done_points.to_i
-      @chart =  pc.to_url
-    end
+    # GoogleChart::PieChart.new('320x200', "Burndown pie chart",false) do |pc| 
+    #   pc.data "Remain", @remain_points.to_i
+    #   pc.data "Done", @done_points.to_i
+    #   @chart =  pc.to_url
+    # end
+    @chart = Gchart.pie(:data => [20, 35, 45])
+    
     respond_to do |format|
       format.html # show.html.erb
       format.json { render :json => @project }

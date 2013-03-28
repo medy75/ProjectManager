@@ -44,8 +44,7 @@ GEM
       multi_json (~> 1.0)
     foreigner (1.2.1)
       activerecord (>= 3.0.0)
-    google_charts (1.2.0)
-      actionpack (>= 3.x)
+    googlecharts (1.6.8)
     hashie (1.2.0)
     hike (1.2.1)
     i18n (0.6.1)
@@ -136,7 +135,7 @@ DEPENDENCIES
   cancan
   coffee-rails (~> 3.2.1)
   foreigner
-  google_charts (~> 1.2.0)
+  googlecharts
   jquery-rails
   json
   less-rails

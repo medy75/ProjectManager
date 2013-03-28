@@ -41,7 +41,8 @@ gem 'omniauth-twitter'
 
 gem 'cancan'
 
-gem "google_charts", "~> 1.2.0"
+gem 'googlecharts'
+#gem "google_charts", "~> 1.2.0"
 
 
 #gem 'bootstrap-sass'

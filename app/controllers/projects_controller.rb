@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-  require 'google_chart'
+  
   # GET /projects
   # GET /projects.json
   def index

@@ -56,8 +56,8 @@ class ProjectsController < ApplicationController
     #   pc.data "Done", @done_points.to_i
     #   @chart =  pc.to_url
     # end
-    @chart = Gchart.pie(:data => [20, 35, 45])
-    
+    @chart = Gchart.pie(:title => 'Story points', :data => [@remain_points, @done_points], :labels => ["Remain", "Done"] )
+
     respond_to do |format|
       format.html # show.html.erb
       format.json { render :json => @project }

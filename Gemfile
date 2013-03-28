@@ -41,10 +41,11 @@ gem 'omniauth-twitter'
 
 gem 'cancan'
 
-gem 'googlecharts'
-#gem "google_charts", "~> 1.2.0"
-
-
+gem 'googlecharts' 
+	#TUTO
+	#http://googlecharts.rubyforge.org/
+	#https://github.com/mattetti/googlecharts
+	
 #gem 'bootstrap-sass'
 #gem 'less-rails-bootstrap'
 

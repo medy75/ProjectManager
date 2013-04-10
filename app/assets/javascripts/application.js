@@ -20,3 +20,13 @@
 //
 //
 //= require bootstrap
+
+ $(document).ready(function() {
+
+ $('issueForm').hide(); //Initially form wil be hidden.
+
+  $('add_issue_button').click(function() {
+   $('issueForm').show();//Form shows on button click
+
+   });
+ });

@@ -42,6 +42,8 @@ gem 'omniauth-twitter'
 gem 'cancan'
 
 gem 'googlecharts' 
+
+gem 'newrelic_rpm'
 	#TUTO
 	#http://googlecharts.rubyforge.org/
 	#https://github.com/mattetti/googlecharts

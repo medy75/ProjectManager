@@ -7,7 +7,19 @@
       <div class="span12">
         <table class="table table-striped table-hover">
           <% if @user.projects.empty? %>
-              <tr><td>No projects</td></tr>
+            <thead>
+              <tr>
+                <th>Project name</th>
+                <th>Description</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+          <tbody>
+            <tr>
+              <td>No projects. For new project, click on the button 'New project' or <%= link_to 'here', new_project_path %></td>
+              <td></td>
+              <td></td>
+            </tr>
           <% else %>
           <thead>
             <tr>
@@ -42,7 +54,7 @@
     </span>
     <span class="pagination-centered">
         <%= button_to "Sign in with Twitter", "/auth/twitter", :class => "btn btn-large btn-primary btn-login" %>
-        <%= button_to "Sign in with Google", "/auth/google", :class => "btn btn-large btn-primary btn-login" %>
+        <%= button_to "Sign in with Google", "/auth/google", :class => "btn btn-large btn-success" %>
     </span>
   </div>
 <% end %>

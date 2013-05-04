@@ -1,37 +1,46 @@
 <% if @user != nil %>
-    <div class="span8">
-        <h2>My projects <%= link_to "New project", new_project_path, :class => "btn btn-success btn-medium" %></h2>
+  <div class="container">
+    <h1 class="page-header">My projects</h1>
+    <%= link_to "New project", new_project_path, :class => "btn btn-primary" %>
+    <div class="row main-features">
+      <div class="span12">
         <table class="table table-striped table-hover">
-            <% if @user.projects.empty? %>
-                <tr><td>No projects</td></tr>
-            <% else %>
-                <% @user.projects.each do |project| %>
-                    <tr>
-                        <td><%= link_to project.title, project , :class =>  "" %>
-                            <div class="pull-right">
-                                <%= link_to '<i class="icon-pencil icon-white"></i>'.html_safe, edit_project_path(project) %>
-                                &nbsp;
-                                <%= link_to '<i class="icon-trash icon-white"></i>'.html_safe, project, :method => :delete, :data => { :confirm => 'Are you sure?' } %></a>
-                            </div>
-                        </td>
-                    </tr>
-                <% end %>
+          <% if @user.projects.empty? %>
+              <tr><td>No projects</td></tr>
+          <% else %>
+          <thead>
+            <tr>
+              <th>Project name</th>
+              <th>Description</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @user.projects.each do |project| %>
+              <tr>
+                <td><%= link_to project.title, project%></td>
+                <td><%= truncate(project.description, :length => 50, :separator => ' ', :omission => "...(continued)") %></td>
+                <td>
+                  <div class="btn-group">
+                    <a class="btn btn-small" href=<%= edit_project_path(project) %>><i class="icon-pencil"></i></a>
+                    <%= link_to raw("<i class=\'icon-white icon-remove\'></i>"), project, :method=>:delete, :confirm=>'Are you sure?', :class=>"btn btn-danger btn-small" %>
+                  </div>
+                </td>
+              </tr>
             <% end %>
+            <% end %>
+          </tbody>
         </table>
+      </div>
     </div>
+  </div>
 <% else %>
-    <div class="hero-unit">
-        <span class="pagination-centered">
-            <h1>Project Manager</h1>
-        </span>
-        <span class="pagination-centered">
-            <%= button_to "Sign in with twitter", "/auth/twitter", :class => "btn btn-large btn-primary btn-login" %>
-        </span>
-        
-    </div>
+  <div class="hero-unit">
+    <span class="pagination-centered">
+        <h1>Project Manager</h1>
+    </span>
+    <span class="pagination-centered">
+        <%= button_to "Sign in with Twitter", "/auth/twitter", :class => "btn btn-large btn-primary btn-login" %>
+    </span>
+  </div>
 <% end %>
-
-
-
-
-<br />

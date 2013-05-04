@@ -11,15 +11,23 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :title %><br />
-    <%= f.text_field :title %>
+  <div class="control-group">
+    <label class="control-label">Title*</label>
+    <div class="controls">
+      <%= f.text_field :title, :class => "input-xxlarge" %>
+      <p class="help-block">Project name</p>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :description %><br />
-    <%= f.text_area :description %>
+
+  <div class="control-group">
+    <label class="control-label">Description</label>
+    <div class="controls">                     
+      <%= f.text_area :description, :rows=>4, :class => "input-xxlarge" %>
+    </div>
   </div>
-  <div class="actions">
-    <%= f.submit %>
+
+  <div class="actions btn-group">
+    <a href=<%= root_url %> class="btn"><i class="icon-arrow-left"></i> Back</a>
+    <%= f.submit 'Submit', :class => "btn btn-medium btn-primary" %>
   </div>
 <% end %>

@@ -39,6 +39,8 @@ gem 'foreigner' # pridano extra
 
 gem 'omniauth-twitter'
 
+gem 'omniauth-google'
+
 gem 'cancan'
 
 gem 'googlecharts' 

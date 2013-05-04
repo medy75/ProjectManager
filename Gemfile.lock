@@ -70,6 +70,10 @@ GEM
     omniauth (1.1.1)
       hashie (~> 1.2)
       rack
+    omniauth-google (1.0.2)
+      multi_json
+      omniauth (~> 1.0)
+      omniauth-oauth
     omniauth-oauth (1.0.1)
       oauth
       omniauth (~> 1.0)
@@ -141,6 +145,7 @@ DEPENDENCIES
   json
   less-rails
   newrelic_rpm
+  omniauth-google
   omniauth-twitter
   pg
   rails (= 3.2.8)

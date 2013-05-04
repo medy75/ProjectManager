@@ -11,30 +11,54 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :title %>
-    <%= f.text_field :title, :class => "wider-input", :value=>"Title" %>
+  <div class="control-group">
+    <label class="control-label">Title*</label>
+    <div class="controls">
+      <%= f.text_field :title, :class => "input-xxlarge" %>
+      <p class="help-block">Issue name</p>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :label %>
-    <%= f.text_field :label, :class => "wider-input" %>
+
+  <div class="control-group">
+    <label class="control-label">Labels</label>
+    <div class="controls">
+      <%= f.text_field :label, :class => "input-xxlarge" %>
+      <p class="help-block">Issue name</p>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :description %>
-    <%= f.text_area :description, :rows=>4, :class => "wider-input" %>
+
+  <div class="control-group">
+    <label class="control-label">Status</label>
+    <div class="controls">
+      <%= f.select :status, Issue::STATUS %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :status %>
-    <%= f.select :status, Issue::STATUS %>
+
+  <!-- Text input-->
+  <div class="control-group">
+    <label class="control-label">Hour estimate</label>
+    <div class="controls">
+      <%= f.number_field :estimate, :value=>0, :class => "input-xxlarge" %>
+      <p class="help-block">Issue estimate in hours</p>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :estimate %>
-    <%= f.number_field :estimate, :value=>0 %>
+
+  <!-- Text input-->
+  <div class="control-group">
+    <label class="control-label">Point estimate*</label>
+    <div class="controls">
+      <%= f.number_field :points_estimate, :value=>0, :class => "input-xxlarge" %>
+      <p class="help-block">Issue estimate in story points</p>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :points_estimate %>
-    <%= f.number_field :points_estimate, :value=>0 %>
+
+  <div class="control-group">
+    <label class="control-label">Description</label>
+    <div class="controls">                     
+      <%= f.text_area :description, :rows=>4, :class => "input-xxlarge" %>
+    </div>
   </div>
+
   <div class="actions">
     <%= f.submit 'Submit', :class => "btn btn-medium btn-primary" %>
   </div>

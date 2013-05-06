@@ -6,6 +6,26 @@
         <a class="btn" href=<%= root_url %>>< Back to my projects</a> 
         <a class="btn" href=<%= edit_project_path(@project) %>>Edit project</a>
       </div>
+      <div class="pull-right">
+        <div class="control-group">
+          <label class="control-label">Add new co-worker</label>
+          <div class="controls">
+            <ul id="user_select" name="user_select" class="input-medium">
+              <% @users.each do |user| %>
+                <li><%= user.username %></li>
+                <%= link_to "Add", addfriend_project_path(@project, :user_id => user.id) %>
+              <% end %>
+            </ul>
+            <br />
+            <p>Allready in:</p>
+            <ul>
+              <% @project_users.each do |user| %>
+                <li><%= user.username %></li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+      </div>
       <h1 class="page-header"><%= @project.title %></h1></h1>
       <div class="btn-group">
         <%= button_to_function 'Show description', "$('#description').toggle()" , :class =>"btn" %>

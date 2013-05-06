@@ -1,6 +1,7 @@
 class ProjectsController < ApplicationController
 
   require 'gchart'
+  helper_method :addfriend
 
   # GET /projects
   # GET /projects.json
@@ -18,6 +19,8 @@ class ProjectsController < ApplicationController
   def show
     @project = Project.find(params[:id])
     @issues = @project.issues
+    @users = User.all
+    @project_users = @project.users
     @backlog_points = 0
     @sprintlog_points = 0
     @progress_points = 0
@@ -51,6 +54,7 @@ class ProjectsController < ApplicationController
     @remain_points = @backlog_points + @sprintlog_points + @progress_points + @test_points
     @total_points = @remain_points + @done_points
     
+
     # GoogleChart::PieChart.new('320x200', "Burndown pie chart",false) do |pc| 
     #   pc.data "Remain", @remain_points.to_i
     #   pc.data "Done", @done_points.to_i
@@ -99,6 +103,15 @@ class ProjectsController < ApplicationController
         format.html { render :action => "new" }
         format.json { render :json => @project.errors, :status => :unprocessable_entity }
       end
+    end
+  end
+
+  def addfriend
+    @project = Project.find(params[:id])
+    @project.users << User.find(params[:user_id])
+    @project.users = @project.users.uniq(&:id)
+    respond_to do |format|
+      format.html { redirect_to @project, :notice => 'New co-worker added.' }
     end
   end
 

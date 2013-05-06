@@ -12,7 +12,11 @@ ProjectManager::Application.routes.draw do
 
   resources :issues
 
-  resources :projects
+  resources :projects do
+    member do
+      get :addfriend
+    end
+  end
 
   resources :sessions
 

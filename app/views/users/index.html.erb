@@ -25,6 +25,7 @@
             <tr>
               <th>Project name</th>
               <th>Description</th>
+              <th>Issues</th>
               <th>Action</th>
             </tr>
           </thead>
@@ -33,6 +34,7 @@
               <tr>
                 <td><%= link_to project.title, project%></td>
                 <td><%= truncate(project.description, :length => 50, :separator => ' ', :omission => "...(continued)") %></td>
+                <td><span class="badge"><%= project.issues.count %></span></td>
                 <td>
                   <div class="btn-group">
                     <a class="btn btn-small" href=<%= edit_project_path(project) %>><i class="icon-pencil"></i></a>

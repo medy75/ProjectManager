@@ -1,4 +1,9 @@
-<p id="notice"><%= notice %></p>
+  <% if notice %>
+    <div class= "alert alert-block alert-success">
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <p id="notice"><%= notice %></p>
+    </div> 
+  <% end %>
 <% if @user != nil %>
   <div class="container">
     <h1 class="page-header">My projects</h1>

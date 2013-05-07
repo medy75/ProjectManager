@@ -2,6 +2,7 @@ class ProjectsController < ApplicationController
 
   require 'gchart'
   helper_method :addfriend
+  helper_method :removefriend
 
   # GET /projects
   # GET /projects.json
@@ -112,6 +113,17 @@ class ProjectsController < ApplicationController
     @project.users = @project.users.uniq(&:id)
     respond_to do |format|
       format.html { redirect_to @project, :notice => 'New co-worker added.' }
+    end
+  end
+
+  def removefriend
+    @project = Project.find(params[:id])
+    @user = User.find(params[:user_id])
+    if @user
+      @project.users.delete(@user)
+    end
+    respond_to do |format|
+      format.html { redirect_to @project, :notice => 'Co-worker removed from this project.' }
     end
   end
 

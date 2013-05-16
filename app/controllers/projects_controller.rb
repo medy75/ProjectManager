@@ -61,8 +61,8 @@ class ProjectsController < ApplicationController
     #   pc.data "Done", @done_points.to_i
     #   @chart =  pc.to_url
     # end
-    @chart = Gchart.pie(:title => 'Story points', :data => [@remain_points, @done_points], :labels => ["Remain", "Done"] )
-
+    @chart = Gchart.pie(:title => "Remaining and done story points", :data => [@remain_points, @done_points], :labels => ["Remain", "Done"] )
+    @all_chart = Gchart.pie(:title => 'Story points in all states',:data => [@backlog_points, @sprintlog_points, @progress_points, @test_points, @done_points], :labels => ["Backlog", "Sprintlog","In progress", "Test", "Done"])
     respond_to do |format|
       format.html # show.html.erb
       format.json { render :json => @project }

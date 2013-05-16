@@ -3,26 +3,30 @@ one:
   title: MyString
   label: MyString
   description: MyString
-  status: MyString
+  status: sprintlog
   estimate: 9.99
+  points_estimate: 2
 
 two:
   title: MyString
   label: MyString
   description: MyString
-  status: MyString
+  status: sprintlog
   estimate: 9.99
+  points_estimate: 2
 
 java_issue:
   title: Issue1
   label: java
   description: Issue1 description
-  status: new
+  status: sprintlog
   estimate: 9.99
+  points_estimate: 2
 
 ruby_issue:
   title: Issue2
   label: rubyonrails
   description: Issue2 description
-  status: new
+  status: sprintlog
   estimate: 0.99
+  points_estimate: 2

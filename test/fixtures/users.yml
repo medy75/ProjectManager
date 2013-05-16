@@ -1,17 +1,17 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  provider: MyString
-  uid: MyString
-  username: MyString
-  first_name: MyString
-  last_name: MyString
-  email: MyString
+  provider: google
+  uid: jarin.md75@gmail.com
+  username: medy75
+  first_name: Jarin
+  last_name: Medku
+  email: jarin.md75@gmail.com
 
 two:
-  provider: MyString
-  uid: MyString
-  username: MyString
-  first_name: MyString
-  last_name: MyString
-  email: MyString
+  provider: google
+  uid: jarin.md75@gmail.com
+  username: medy75
+  first_name: Jarin
+  last_name: Medku
+  email: jarin.md75@gmail.com

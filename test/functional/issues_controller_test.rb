@@ -3,17 +3,20 @@ require 'test_helper'
 class IssuesControllerTest < ActionController::TestCase
   setup do
     @issue = issues(:one)
+    @project = projects(:one)
     @update = {
       :title => "Lorem Ipsum",
       :description => "Lorem Ipsum description",
-      :status => "new",
+      :status => "sprintlog",
       :label => "test",
-      :estimate => 0.2
+      :estimate => 3,
+      :points_estimate => 3,
+      :project_id => @project.id
     }
   end
 
   test "should get index" do
-    get :index
+    get :index, :project_id => @project.id
     assert_response :success
     assert_not_nil assigns(:issues)
   end
@@ -25,9 +28,8 @@ class IssuesControllerTest < ActionController::TestCase
 
   test "should create issue" do
     assert_difference('Issue.count') do
-      post :create, :issue => { :description => @issue.description, :estimate => @issue.estimate, :label => @issue.label, :status => @issue.status, :title => @issue.title }
+      post :create, :project_id => @project, :issue => {:description => @issue.description, :estimate => @issue.estimate, :label => @issue.label, :status => @issue.status, :title => @issue.title }
     end
-
     assert_redirected_to issue_path(assigns(:issue))
   end
 
@@ -37,18 +39,18 @@ class IssuesControllerTest < ActionController::TestCase
   end
   
   test "should get edit" do
-    get :edit, :id => @issue
+    get :edit, :id => @issue, :project_id => @project
     assert_response :success
   end
 
   test "should update issue" do
-    put :update, :id => @issue, :issue => { :description => @issue.description, :estimate => @issue.estimate, :label => @issue.label, :status => @issue.status, :title => @issue.title }
+    put :update, :project_id => @project, :id => @issue, :issue => { :description => @issue.description, :estimate => @issue.estimate, :label => @issue.label, :status => @issue.status, :title => @issue.title }
     assert_redirected_to issue_path(assigns(:issue))
   end
 
   test "should destroy issue" do
     assert_difference('Issue.count', -1) do
-      delete :destroy, :id => @issue
+      delete :destroy, :id => @issue, :project_id => @project
     end
 
     assert_redirected_to issues_path

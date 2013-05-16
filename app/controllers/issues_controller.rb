@@ -3,7 +3,7 @@ class IssuesController < ApplicationController
   # GET /issues.json
   def index
     @project = Project.find(params[:project_id])
-    @issues = @project.issues
+    @issues = @project.issues.sort_by{|a| a.title}
 
     respond_to do |format|
       format.html # index.html.erb
